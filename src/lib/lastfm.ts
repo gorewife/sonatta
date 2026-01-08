@@ -1,9 +1,9 @@
 import type { LastFmUser, Artist, Track, Album } from './types';
 import { MockLastFmAPI } from './mockLastfm';
 
-const API_KEY = 'YOUR_LASTFM_API_KEY';
+const API_KEY = import.meta.env.VITE_LASTFM_API_KEY || 'YOUR_LASTFM_API_KEY';
 const BASE_URL = 'https://ws.audioscrobbler.com/2.0/';
-const USE_MOCK_API = true;
+const USE_MOCK_API = import.meta.env.VITE_USE_MOCK_API === 'true';
 
 export class LastFmAPI {
   private apiKey: string;
